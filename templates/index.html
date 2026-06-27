@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ portfolio.profile.name }} | {{ portfolio.profile.title }}</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Portfolio of {{ portfolio.profile.name }}, {{ portfolio.profile.title }}. {{ portfolio.profile.tagline }}">
+    <meta name="author" content="{{ portfolio.profile.name }}">
+    
+    <!-- Google Fonts: Outfit (Body) & Syne (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Custom Cursor Follower -->
+    <div class="custom-cursor-dot" id="cursorDot"></div>
+    <div class="custom-cursor-outline" id="cursorOutline"></div>
+
+    <!-- Glowing Background Blobs for Glassmorphism Context -->
+    <div class="blob-wrapper">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-symbol">&lt;</span>{{ portfolio.profile.name }}<span class="logo-symbol"> /&gt;</span>
+            </a>
+            
+            <nav class="navbar" id="navbar">
+                <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#education" class="nav-link" data-section="education">Education</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="{{ portfolio.profile.resume_link }}" class="btn btn-resume btn-sm" download aria-label="Download Resume"><i class="fa-solid fa-download"></i> Resume</a>
+                <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+
+                    <!-- Profile Identity Block -->
+                    <div class="hero-identity reveal-fade">
+                        <div class="hero-avatar-ring">
+                            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Vinuprasaath" class="hero-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="hero-avatar-fallback" style="display:none;"><i class="fa-solid fa-user"></i></div>
+                        </div>
+                        <div class="hero-identity-text">
+                            <h1 class="hero-name gradient-text">Vinuprasaath</h1>
+                            <span class="hero-role-badge"><i class="fa-solid fa-microchip"></i> AI &amp; ML Enthusiast</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-badge reveal-fade" style="margin-top: 24px;">
+                        <span class="pulse-dot"></span> Open to Work &mdash; Graduating 2026
+                    </div>
+                    <h2 class="hero-subtitle reveal-fade-up delay-1">
+                        {{ portfolio.profile.title }}
+                    </h2>
+                    <p class="hero-desc reveal-fade-up delay-2">
+                        {{ portfolio.profile.tagline }}
+                    </p>
+                    <div class="hero-btns reveal-fade-up delay-3">
+                        <a href="#projects" class="btn btn-primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="{{ portfolio.profile.resume_link }}" class="btn btn-secondary" download><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual reveal-fade-scale">
+                    <div class="hero-card-glow">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">vinu_profile.py</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="term-line"><span class="term-key">class</span> <span class="term-value">Developer</span>:</p>
+                            <p class="term-line indent-1"><span class="term-key">def</span> <span class="term-func">__init__</span>(self):</p>
+                            <p class="term-line indent-2">self.name = <span class="term-string">"{{ portfolio.profile.name }}"</span></p>
+                            <p class="term-line indent-2">self.degree = <span class="term-string">"B.Tech AI&DS '26"</span></p>
+                            <p class="term-line indent-2">self.stack = [<span class="term-string">"Python"</span>, <span class="term-string">"Flask"</span>, <span class="term-string">"Django"</span>, <span class="term-string">"MySQL"</span>]</p>
+                            <p class="term-line indent-2">self.location = <span class="term-string">"{{ portfolio.profile.location }}"</span></p>
+                            <p class="term-line indent-2">self.published = <span class="term-value">True</span> <span class="term-key"># IJRASET 2026</span></p>
+                            <p class="term-line indent-1"><span class="term-key">def</span> <span class="term-func">is_open_to_work</span>(self):</p>
+                            <p class="term-line indent-2"><span class="term-key">return</span> <span class="term-value">True</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-down-btn" aria-label="Scroll Down">
+                <span class="mouse-icon">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal-fade-up">
+                    <span class="subtitle">Get To Know Me</span>
+                    <h2 class="title">About Myself</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-info-card reveal-fade-left">
+                        <p class="lead">{{ portfolio.profile.bio }}</p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-val">{{ portfolio.profile.location }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-val"><a href="mailto:{{ portfolio.profile.email }}">{{ portfolio.profile.email }}</a></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Work Style:</span>
+                                <span class="detail-val">Hybrid / Remote</span>
+                            </div>
+                        </div>
+                        <div class="social-links-wrapper">
+                            <a href="{{ portfolio.profile.github }}" target="_blank" class="social-link-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="{{ portfolio.profile.linkedin }}" target="_blank" class="social-link-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="{{ portfolio.profile.twitter }}" target="_blank" class="social-link-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="about-stats reveal-fade-right">
+                        <div class="stat-card">
+                            <div class="stat-num">2</div>
+                            <div class="stat-lbl">AI Projects Built</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">1</div>
+                            <div class="stat-lbl">Research Published</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">8.0</div>
+                            <div class="stat-lbl">CGPA (B.Tech)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">'26</div>
+                            <div class="stat-lbl">Graduating Year</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- Education Section -->
+<section id="education" class="education-section section-padding">
+    <div class="container">
+        <div class="section-header text-center reveal-fade-up">
+            <span class="subtitle">Education</span>
+            <h2 class="title">Academic Background</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="education-grid reveal-fade-up">
+            {% for edu in portfolio.profile.education %}
+            <div class="education-card">
+                <h3 class="edu-degree">{{ edu.degree }} – {{ edu.field }}</h3>
+                <p class="edu-institution">{{ edu.institution }}</p>
+                <p class="edu-period">{{ edu.period }}</p>
+                <p class="edu-cgpa">CGPA: {{ edu.cgpa }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Awards Section -->
+<section id="awards" class="awards-section section-padding">
+    <div class="container">
+        <div class="section-header text-center reveal-fade-up">
+            <span class="subtitle">Achievements</span>
+            <h2 class="title">Awards &amp; Achievements</h2>
+            <div class="divider"></div>
+        </div>
+        <ul class="awards-list reveal-fade-up">
+            {% for award in portfolio.profile.awards %}
+            <li class="award-item">{{ award }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<!-- Additional Info Section -->
+<section id="additional-info" class="additional-section section-padding">
+    <div class="container">
+        <div class="section-header text-center reveal-fade-up">
+            <span class="subtitle">Strengths</span>
+            <h2 class="title">Technical &amp; Soft Skills</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="details-grid reveal-fade-up">
+            <div class="detail-card">
+                <h3>Technical Skills</h3>
+                <p>{{ portfolio.profile.technical_skills }}</p>
+            </div>
+            <div class="detail-card">
+                <h3>Soft Skills</h3>
+                <p>{{ portfolio.profile.soft_skills }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal-fade-up">
+                    <span class="subtitle">My Abilities</span>
+                    <h2 class="title">Technical Expertise</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="skills-grid reveal-fade-up">
+                    {% for skill in portfolio.skills %}
+                    <div class="skill-card" data-category="{{ skill.category }}">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="{{ skill.icon }} skill-icon"></i>
+                                <span class="skill-name">{{ skill.name }}</span>
+                            </div>
+                            <span class="skill-percentage">{{ skill.level }}%</span>
+                        </div>
+                        <div class="skill-progress-bg">
+                            <div class="skill-progress-bar" style="width: {{ skill.level }}%"></div>
+                        </div>
+                        <span class="skill-category-badge">{{ skill.category }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal-fade-up">
+                    <span class="subtitle">Recent Work</span>
+                    <h2 class="title">Featured Projects</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="filter-controls reveal-fade-up">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="ai">AI / ML</button>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="project-grid">
+                    {% for project in portfolio.projects %}
+                    <div class="project-card reveal-fade-up" data-category="{{ project.category }}">
+                        <div class="project-image-wrapper">
+                            <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-overlay-links">
+                                    <a href="{{ project.github }}" target="_blank" class="overlay-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                    <a href="{{ project.demo }}" target="_blank" class="overlay-btn" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <span class="project-subtitle">{{ project.subtitle }}</span>
+                            <h3 class="project-title">{{ project.title }}</h3>
+                            <p class="project-desc">{{ project.description }}</p>
+                            <div class="project-tech-tags">
+                                {% for tag in project.tech %}
+                                <span class="tech-tag">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal-fade-up">
+                    <span class="subtitle">Career Journey</span>
+                    <h2 class="title">Work History</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="timeline">
+                    {% for exp in portfolio.experience %}
+                    <div class="timeline-item reveal-fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-role">{{ exp.role }}</h3>
+                                    <span class="timeline-company">{{ exp.company }}</span>
+                                </div>
+                                <span class="timeline-date">{{ exp.period }}</span>
+                            </div>
+                            <p class="timeline-desc">{{ exp.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal-fade-up">
+                    <span class="subtitle">Get In Touch</span>
+                    <h2 class="title">Let's Discuss Projects</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Cards -->
+                    <div class="contact-info reveal-fade-left">
+                        <h3>Connect With Me</h3>
+                        <p>Feel free to reach out for project inquiries, collaboration opportunities, or general technical queries.</p>
+                        
+                        <div class="info-links">
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="info-text">
+                                    <span class="info-label">Email Me</span>
+                                    <a href="mailto:{{ portfolio.profile.email }}" class="info-val">{{ portfolio.profile.email }}</a>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                <div class="info-text">
+                                    <span class="info-label">Location</span>
+                                    <span class="info-val">{{ portfolio.profile.location }}</span>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="info-text">
+                                    <span class="info-label">Call Me</span>
+                                    <a href="tel:{{ portfolio.profile.phone }}" class="info-val">{{ portfolio.profile.phone }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-container reveal-fade-right">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="name">Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Collaboration">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <p class="copyright">&copy; 2026 {{ portfolio.profile.name }}. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#hero">Back to Top</a>
+                <span class="bullet">&bull;</span>
+                <a href="{{ portfolio.profile.github }}" target="_blank">GitHub</a>
+                <span class="bullet">&bull;</span>
+                <a href="{{ portfolio.profile.linkedin }}" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Script -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
