@@ -34,15 +34,13 @@ PORTFOLIO_DATA = {
                 "degree": "12th",
                 "field": "Higher Secondary",
                 "institution": "Kapvisvanathan Higher Secondary School",
-                "period": "2021 – 2022",
-                "score": "65.6%"
+                "period": "2021 – 2022"
             },
             {
                 "degree": "10th",
                 "field": "SSLC",
                 "institution": "Kapvisvanathan Higher Secondary School",
-                "period": "2019 – 2020",
-                "score": "71.4%"
+                "period": "2019 – 2020"
             }
         ],
         "awards": [

@@ -192,7 +192,9 @@
                 <h3 class="edu-degree">{{ edu.degree }} – {{ edu.field }}</h3>
                 <p class="edu-institution">{{ edu.institution }}</p>
                 <p class="edu-period">{{ edu.period }}</p>
-                <p class="edu-cgpa">CGPA: {{ edu.cgpa }}</p>
+                {% if edu.score %}
+                <p class="edu-cgpa">{{ edu.score }}</p>
+                {% endif %}
             </div>
             {% endfor %}
         </div>
