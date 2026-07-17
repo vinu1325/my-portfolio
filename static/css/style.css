@@ -2,25 +2,25 @@
    Design Tokens & Root Variables
    ========================================================================== */
 :root {
-    --bg-primary: #0a090d;
-    --bg-secondary: #110f17;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fc;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card-hover: rgba(255, 255, 255, 0.9);
     
     --primary: #1e40af; /* Dark blue */
     --primary-rgb: 30, 64, 175;
-    --accent: #60a5fa; /* Light blue */
-    --accent-rgb: 96, 165, 250;
+    --accent: #2563eb; /* Slightly darker blue for light bg */
+    --accent-rgb: 37, 99, 235;
     
-    --text-primary: #f3f4f6;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
     
-    --border-color: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.15);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.15);
     
-    --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    --bg-gradient: radial-gradient(circle at 50% 50%, #1a1625 0%, var(--bg-primary) 100%);
+    --primary-gradient: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+    --bg-gradient: radial-gradient(circle at 50% 50%, #f0f4ff 0%, var(--bg-primary) 100%);
     
     --font-sans: 'Outfit', sans-serif;
     --font-mono: 'Courier New', Courier, monospace;
@@ -29,9 +29,9 @@
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.2s ease;
     
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
     
     --header-height: 80px;
 }
@@ -154,8 +154,8 @@ section {
     position: absolute;
     border-radius: 50%;
     filter: blur(120px);
-    opacity: 0.25;
-    mix-blend-mode: screen;
+    opacity: 0.12;
+    mix-blend-mode: multiply;
     animation: floatBlob 25s infinite alternate;
 }
 
@@ -321,7 +321,7 @@ header {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: rgba(10, 9, 13, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
@@ -331,7 +331,7 @@ header {
 
 header.scrolled {
     height: 70px;
-    background: rgba(10, 9, 13, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     box-shadow: var(--shadow-sm);
 }
 
@@ -471,7 +471,7 @@ header.scrolled {
     border-radius: 50%;
     object-fit: cover;
     object-position: top center;
-    border: 3px solid var(--bg-primary);
+    border: 3px solid #ffffff;
     display: block;
 }
 
@@ -540,8 +540,8 @@ header.scrolled {
     gap: 8px;
     padding: 6px 16px;
     border-radius: 30px;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.15);
     color: var(--accent);
     font-size: 0.85rem;
     font-weight: 600;
@@ -618,7 +618,7 @@ header.scrolled {
 .hero-card-glow {
     width: 100%;
     max-width: 440px;
-    background: rgba(18, 16, 26, 0.6);
+    background: rgba(15, 23, 42, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
@@ -643,7 +643,7 @@ header.scrolled {
     align-items: center;
     gap: 6px;
     margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 12px;
 }
 
@@ -668,7 +668,7 @@ header.scrolled {
     font-family: var(--font-mono);
     font-size: 0.9rem;
     line-height: 1.7;
-    color: #e5e7eb;
+    color: #e2e8f0;
 }
 
 .term-line {
@@ -737,11 +737,12 @@ header.scrolled {
 }
 
 .about-info-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     padding: 40px;
     border-radius: 24px;
     backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
 }
 
 .about-details {
@@ -753,7 +754,7 @@ header.scrolled {
 
 .detail-item {
     display: flex;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     padding-bottom: 12px;
 }
 
@@ -781,7 +782,7 @@ header.scrolled {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.02);
     border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -805,13 +806,14 @@ header.scrolled {
 }
 
 .stat-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 32px;
     text-align: center;
     backdrop-filter: blur(10px);
     transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
 }
 
 .stat-card:hover {
@@ -847,7 +849,7 @@ header.scrolled {
 }
 
 .skill-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
@@ -855,6 +857,7 @@ header.scrolled {
     backdrop-filter: blur(8px);
     transition: var(--transition-smooth);
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .skill-card:hover {
@@ -895,7 +898,7 @@ header.scrolled {
 .skill-progress-bg {
     width: 100%;
     height: 6px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.04);
     border-radius: 3px;
     margin-bottom: 12px;
 }
@@ -957,7 +960,7 @@ header.scrolled {
 }
 
 .project-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 20px;
     overflow: hidden;
@@ -965,6 +968,7 @@ header.scrolled {
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-sm);
 }
 
 .project-card:hover {
@@ -1002,7 +1006,7 @@ header.scrolled {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(11, 9, 15, 0.8);
+    background: rgba(15, 23, 42, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1084,7 +1088,7 @@ header.scrolled {
     font-size: 0.75rem;
     font-weight: 600;
     padding: 4px 12px;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(0, 0, 0, 0.03);
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     border-radius: 20px;
@@ -1178,7 +1182,7 @@ header.scrolled {
 .timeline-date {
     font-size: 0.85rem;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(0, 0, 0, 0.03);
     border: 1px solid var(--border-color);
     padding: 4px 14px;
     border-radius: 30px;
@@ -1232,8 +1236,8 @@ header.scrolled {
 .info-icon {
     width: 50px;
     height: 50px;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.15);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1299,7 +1303,7 @@ header.scrolled {
 
 .form-group input, 
 .form-group textarea {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.02);
     border: 1px solid var(--border-color);
     padding: 14px 18px;
     border-radius: 10px;
@@ -1313,8 +1317,8 @@ header.scrolled {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .form-status {
@@ -1350,7 +1354,7 @@ header.scrolled {
 }
 
 .education-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 36px;
@@ -1358,6 +1362,7 @@ header.scrolled {
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .education-card::before {
@@ -1397,7 +1402,7 @@ header.scrolled {
     font-weight: 500;
     margin-bottom: 12px;
     display: inline-block;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(0, 0, 0, 0.03);
     border: 1px solid var(--border-color);
     padding: 3px 12px;
     border-radius: 20px;
@@ -1424,7 +1429,7 @@ header.scrolled {
 }
 
 .award-item {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px 28px 24px 64px;
@@ -1434,6 +1439,7 @@ header.scrolled {
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    box-shadow: var(--shadow-sm);
 }
 
 .award-item::before {
@@ -1467,12 +1473,13 @@ header.scrolled {
 }
 
 .detail-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 36px;
     backdrop-filter: blur(12px);
     transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
 }
 
 .detail-card:hover {
@@ -1512,7 +1519,7 @@ header.scrolled {
 footer {
     border-top: 1px solid var(--border-color);
     padding: 40px 0;
-    background-color: rgba(10, 9, 13, 0.6);
+    background-color: rgba(248, 249, 252, 0.9);
     backdrop-filter: blur(8px);
 }
 
@@ -1665,7 +1672,7 @@ footer {
         right: -100%;
         width: 280px;
         height: 100vh;
-        background: rgba(17, 15, 23, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid var(--border-color);

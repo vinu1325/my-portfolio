@@ -29,20 +29,6 @@ PORTFOLIO_DATA = {
                 "institution": "M.I.E.T Engineering College, Trichy",
                 "period": "2022 – 2026",
                 "score": "CGPA: 8.0"
-            },
-            {
-                "degree": "12th",
-                "field": "Higher Secondary",
-                "institution": "Kapvisvanathan Higher Secondary School",
-                "period": "2021 – 2022",
-                "score": "Percentage: 65.5%"
-            },
-            {
-                "degree": "10th",
-                "field": "SSLC",
-                "institution": "Kapvisvanathan Higher Secondary School",
-                "period": "2019 – 2020",
-                "score": "Percentage: 71.4%"
             }
         ],
         "awards": [
